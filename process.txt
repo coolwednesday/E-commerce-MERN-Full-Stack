@@ -1,0 +1,50 @@
+first we type npm init -y to answer automatically to all the questions while initialising the project with node and then we get package json file.
+package.json contains the object with app details we can mention any script . We specified main file to be server.js. in script we mentioned start to run server.js first on npm start.
+
+Then we download the dependencies.
+colors dependecy makes our console colorful
+
+node_modules is the folder that has all the dependencies. All details about dependencies is present in package.lock.json. Now we create the server of express.
+we create a new file server.js and require express, then create a rest object of express so that we can call api . then we create rest api.
+we then download nodemon , it automatically reflects the changes.
+Now we need to secure our app all the confidential data must be added to .env file.we need to install .env package and everytime we make changes in .env file we have to restart the server .
+we also install morgan , that tells us the api url that has been hit.
+Now we establish Mongodb database connection 
+we open Mongo Db atlas and create a database.
+create a database , then update database acess in the file , then update network acess to anywhere, then click on connect , then connect through nodejs, get the string and replace password section with your password.
+
+the install mongoose .Mongoose helps in performing crud operations. Morgan shows api request in console. Also create a configuration folder to store all the configuration files at same place. import mongoose in a file say db.js in config folder.
+
+we write the connection function for connection through mongoose with try and catch and proper messages and then export this file into main server.js , we also import morgan in the same file and configure to use morgan . 
+morgan helps to debug ...not useful in production. We will remove it then .
+now we create all the different type of folders required. that is models,controllers,middlewares,hlpers and config folders.
+
+then first we create user schema then we export mongoose model of user based on userschema that we created.....
+
+Then we create routes, we create a object of router and export it and then import it in server.js ...
+we write route for different methods with /method, callback fuction . Here callback function is written in another file under controller.js and then the function is imported here....
+before app.get in server file, we specify all the routes using app.use 
+
+Now for register functionality we need to encrypt our password . we do it using the bcrypt library.we can hash our password through it.
+
+we mention number of rounds of hashing and passit with the password in bcrypt.hash()
+and return it .
+Also make a compare password and use bcrypt.compare() to verify the password and export both functions.
+then we will write register function that has req and res and actual code for crud in database .
+
+check it in postman to test the api .
+now we will create login route and we also have to use JSON web token for secure connection. we will install json webtoken.
+
+first we will validate email and password , then we will check for user through email then we will compare the password using comparepassword function made in helper function. Now to let home route show we will add middleware code where we compare jwt token . if true only then we can move forward.
+
+token is present in token .hence we look for it in the header.
+
+for distinguishing between admin and uer we have acolumn role ...before logging in ....the role would be checked then the page required is shown.
+
+Now we will create the react application.
+we will remove all unecessary files and then apply universal styling in app.css and then add link of bootstrap in head and then the related javascript link to help them function properly in body tag after root element.
+
+we search for the fonts and write their import statements in index.css, then we can mention it in our css file when we wish. In src folder , we create two folders , one is components for all our reusable files and pages to handle routes.
+
+in components folder we create a layout folder that has header,footer,layout .this should be present in all pages. we will wrap all the pages that we create under Layout in app.js.
+
