@@ -5,6 +5,7 @@ export const createProductController= async(req,res)=>{
     try{
         const{name,description,slug,price,category,quantity,shipping,photo}=req.body;
         //validation
+        console.log(name);
         if(!name){
             return res.status(500).send({
                     message:'Name is required'
@@ -33,7 +34,7 @@ export const createProductController= async(req,res)=>{
         
         const products =new productModel({...req.body,slug:slugify(name)})
  await products.save()
- req.status(201).send({
+ res.status(201).send({
     success:true,
     message:'Product Created Successfully',
     products,
